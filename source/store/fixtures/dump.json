@@ -1,0 +1,134 @@
+[
+{
+    "model": "store.products",
+    "pk": 1,
+    "fields": {
+        "title": "DJart++ Creasing foam",
+        "description": "tee tree",
+        "category": "other",
+        "residue": 36,
+        "price": "900.00"
+    }
+},
+{
+    "model": "store.products",
+    "pk": 2,
+    "fields": {
+        "title": "MacBook Pro",
+        "description": "m1 2020",
+        "category": "other",
+        "residue": 3,
+        "price": "120000.00"
+    }
+},
+{
+    "model": "store.products",
+    "pk": 3,
+    "fields": {
+        "title": "LapTop Bag",
+        "description": "",
+        "category": "other",
+        "residue": 43,
+        "price": "300.00"
+    }
+},
+{
+    "model": "store.products",
+    "pk": 4,
+    "fields": {
+        "title": "molecule 02",
+        "description": "",
+        "category": "other",
+        "residue": 5,
+        "price": "10000.00"
+    }
+},
+{
+    "model": "store.products",
+    "pk": 5,
+    "fields": {
+        "title": "Air Force Jorden X Travis Scott",
+        "description": "obsisin",
+        "category": "other",
+        "residue": 0,
+        "price": "32000.00"
+    }
+},
+{
+    "model": "store.products",
+    "pk": 6,
+    "fields": {
+        "title": "Tom Ford lipstik",
+        "description": "03",
+        "category": "other",
+        "residue": 64,
+        "price": "872.00"
+    }
+},
+{
+    "model": "store.products",
+    "pk": 7,
+    "fields": {
+        "title": "Coca-Cola",
+        "description": "1.5",
+        "category": "beverage",
+        "residue": 629,
+        "price": "90.00"
+    }
+},
+{
+    "model": "store.products",
+    "pk": 8,
+    "fields": {
+        "title": "Bananas",
+        "description": "",
+        "category": "fruits",
+        "residue": 74,
+        "price": "120.00"
+    }
+},
+{
+    "model": "store.basket",
+    "pk": 18,
+    "fields": {
+        "product": 8,
+        "quantity": 1
+    }
+},
+{
+    "model": "store.basket",
+    "pk": 19,
+    "fields": {
+        "product": 7,
+        "quantity": 1
+    }
+},
+{
+    "model": "store.basket",
+    "pk": 20,
+    "fields": {
+        "product": 1,
+        "quantity": 3
+    }
+},
+{
+    "model": "store.order",
+    "pk": 1,
+    "fields": {
+        "client_name": "MVHGV",
+        "phone": "GUKGU",
+        "address": "GUK",
+        "datetime": "2022-02-07T12:48:21.323Z"
+    }
+},
+{
+    "model": "store.order",
+    "pk": 2,
+    "fields": {
+        "client_name": "SJDWILSJD",
+        "phone": "OJLJLJ",
+        "address": "IHIKLH",
+        "datetime": "2022-02-07T12:49:07.097Z"
+    }
+}
+]

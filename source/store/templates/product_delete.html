@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block nav %}{% endblock %}
+{% block content %}
+    {% csrf_token %}
+    <form action="{% url 'store:product_delete' product.pk %}" method="POST">
+        {% csrf_token %}
+        <h2>Вы хотите удалить товар {{ product.title }} ?</h2>
+        <input type="submit" style="background-color: yellowgreen; color: black; width: 55px; height: 35px" value="Да">
+    </form>
+    <br>
+    <a class="btn bg-dark text-light" href="{% url 'store:product_check' product.pk %}">Нет</a>
+{% endblock %}

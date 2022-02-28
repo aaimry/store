@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h4>Общее время,проведенное на сайте: {{ time }}</h4>
+    {% for page, value in pages.items %}
+        <h5>Страница {{ page }}:</h5>
+        {% for key, item in value.items %}
+        <p>{{ key }}: {{ item }}</p>
+        {% endfor %}
+    {% endfor %}
+{% endblock content %}

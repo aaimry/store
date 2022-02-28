@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% include 'partial/searchform.html' %}
+    <h1> Товары:</h1>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                {% for product in product %}
+                    {% if product.residue > 0 %}
+                        <div class="card mb-3 text-light" style="width: 20rem; background-color: #273746">
+                            <div class="card-body">
+                                <h2>{{ product.title }}</h2>
+                                <h4>Цена: {{ product.price }}</h4>
+                                <p><a class="btn" style='background-color: greenyellow; color: #273746;font-size: 20px'
+                                      href="{% url 'store:product_check' product.pk %}">Подробнее</a></p>
+                                <p><a class="btn" style='background-color: greenyellow; color: #273746;font-size: 20px'
+                                      href="{% url 'store:basket_add' product.pk %}">Добавить в корзину</a></p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+{% endblock %}

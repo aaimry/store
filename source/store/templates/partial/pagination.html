@@ -1,0 +1,29 @@
+<form class="row gx-3 gy-2 align-items-center m-4">
+<div class="pagination">
+    <span class="step-links">
+        <a class="btn" style="background-color: #BEDFF2" href="?page=1{% if search %}&search={{ search }}{% endif %}">&laquo; В начало</a>
+        {% if page_obj.has_previous %}
+            <a class="btn" style="background-color: #BEDFF2"
+               href="?page={{ page_obj.previous_page_number }}{% if search %}&search={{ search }}{% endif %}">Назад</a>
+        {% else %}
+            <span class="page-disabled">Назад</span>
+        {% endif %}
+
+        <form class="current-page" method="get">
+            <label for="page">
+                Страница <input type="text" name="page" id="page" value="{{ page_obj.number }}" style="width: 50px">
+                из {{ page_obj.paginator.num_pages }}.
+                <input type="hidden" name="search" value="{{ search }}">
+            </label>
+        </form>
+
+        {% if page_obj.has_next %}
+            <a class="btn" style="background-color: #BEDFF2" href="?page={{ page_obj.next_page_number }}{% if search %}&search={{ search }}{% endif %}">Далее</a>
+        {% else %}
+            <span class="page-disabled">Далее</span>
+        {% endif %}
+        <a class="btn" style="background-color: #BEDFF2" href="?page=
+                {{ page_obj.paginator.num_pages }}{% if search %}&search={{ search }}{% endif %}">В конец &raquo;</a>
+    </span>
+</div>
+</form>

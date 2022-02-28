@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1> Товары в корзине:</h1>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                {% for product in product %}
+                    <div class="card mb-3 text-light" style="width: 20rem; background-color: #273746">
+                        <div class="card-body">
+                            <h2>{{ product.product.title }}</h2>
+                            <h4>Колличество: {{ product.quantity }}</h4>
+                            <h4>Цена: {{ product.product.price }}</h4>
+                            <h4>Итого: {{ product.get_sum }}</h4>
+                            <a class="btn" style='background-color: greenyellow; color: #273746; font-size: 20px'
+                               href="{% url 'store:basket_add' product.product.pk %}">Добавить</a>
+                            <a class="btn" style='background-color: greenyellow; color: #273746; font-size: 20px'
+                               href="{% url 'store:basket_delete' product.product.pk %}">Удалить</a>
+                        </div>
+                    </div>
+                {% endfor %}
+                {% if total > 0 %}
+                    <h4>Итого: {{ total }}</h4>
+                    </div>
+                    </div>
+                    <form method="post" action="{% url 'store:make_order' %}">
+                        {% include 'partial/form.html' with button_text='ОФОРМИТЬ ЗАКАЗ!' %}
+                    </form>
+                {% else %}
+                    <h4>КОРЗИНА ПУСТА</h4>
+                {% endif %}
+    </div>
+{% endblock %}

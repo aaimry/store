@@ -1,0 +1,9 @@
+{% include 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1>Оформить Заказ!</h1>
+        <form method="post">
+            {% include 'partial/form.html' with button_text='ОФОРМИТЬ ЗАКАЗ!' %}
+        </form>
+    </div>
+{% endblock %}

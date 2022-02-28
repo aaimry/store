@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %} Orders {% endblock title %}
+
+{% block content %}
+    {% if not orders %}
+        <h3>Нет заказов</h3>
+    {% endif %}
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Название</th>
+            <th scope="col">Цена</th>
+            <th scope="col">Количество</th>
+            <th scope="col">Сумма</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orders %}
+            {% if request.user == order.user %}
+                {% for product in order.order_product.all %}
+                    <tr>
+                        <td> {{ product.product.title }}</td>
+                        <td>{{ product.product.price }}</td>
+                        <td>{{ product.quantity }}</td>
+                        <td>{{ product.get_sum }}</td>
+                    </tr>
+                {% endfor %}
+                <tr style="background-color: lightsteelblue">
+                    <th> Итого:</th>
+                    <th>{{ order.get_total }}</th>
+                    <th>Дата:</th>
+                    <th> {{ order.datetime }}</th>
+                <tr>
+                    <td colspan="5"></td>
+                </tr>
+                </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Update product {% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link text-light" aria-current="page" href="{% url 'store:product_check' product.pk %}">Back to product</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <h1>Редактировать товар:</h1>
+    <form method="post">
+        {% include 'partial/form.html' with button_text='Update'%}
+    </form>
+{% endblock %}

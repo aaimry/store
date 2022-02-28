@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+     <h1>Категории:
+        <a style='color: greenyellow' href="/check/fruits">Фрукты</a>
+        <a style='color: greenyellow' href="/check/vegetables">Овощи</a>
+        <a style='color: greenyellow' href="/check/bakery">Выпечка</a>
+        <a style='color: greenyellow' href="/check/beverage">Напитки</a>
+        <a style='color: greenyellow' href="/check/other">Разное</a>
+    </h1>
+    <h1> Товары в выбранной категории: </h1>
+    <div class="container">
+        <div class="row row-cols-1 row-cols-md-2 g-4">
+            <div class="col">
+                {% for product in product %}
+                    {% if product.residue > 0 %}
+                    <div class="card mb-3 text-light" style="width: 20rem; background-color: #273746">
+                        <div class="card-body">
+                            <h2>{{ product.title }}</h2>
+                            <h4><a class='category text-light'
+                                   href="{% url 'store:product_category' product.category %}">Категория: {{ product.get_category_display }}</a>
+                            </h4>
+                            <h4>Цена: {{ product.price }}</h4>
+                            <a href="{% url 'store:product_check' product.pk %}">Подробнее</a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
